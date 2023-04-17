@@ -1,15 +1,38 @@
-import {clientsDatabase} from '../data'
+import * as React from 'react';
+import { useState } from 'react';
+import { useRouter } from 'next/router';
+
+const ELEVEN = 11
 
 export default function Home() {
+  const [input, setInput] = useState('');
+  const router = useRouter();
+
+  const handleInput: React.ChangeEventHandler<HTMLInputElement> = ({target}) => {
+    setInput(target.value) 
+  }
+
+  const handleSubmit: React.FormEventHandler<HTMLFormElement> = (e) => {
+    e.preventDefault()
+
+    router.push('/users/teste')
+  }
+
+  const isDisabled = input.length !== ELEVEN
+
   return (
     <div>
-      <img src="" alt="" />
-      <form action="">
+      {/* <img src={ logo } alt="" /> */}
+      <form onSubmit={handleSubmit}>
         <h1>Encontre o cliente</h1>
-        <label htmlFor="cpf">
-          <input id="cpf" type="text" placeholder="Insira o seu CPF"/>
-        </label>
-        <button id='find' type='submit'>Encontrar</button>
+        <input
+          id="cpf"
+          type="text"
+          value={input}
+          onChange={handleInput}
+          maxLength={ELEVEN}
+          placeholder="Insira o seu CPF"/>
+        <button id='find' type='submit' disabled={isDisabled}>Encontrar</button>
       </form>
     </div>
   )
