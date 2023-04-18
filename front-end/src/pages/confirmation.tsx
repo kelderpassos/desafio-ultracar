@@ -19,23 +19,17 @@ export default function Services() {
     return [day, month, year].join("/");
   };
 
-  console.log(typeof orderDate);
-  
-  
-  const teste = orderDate ? convertDate(orderDate) : ''
-  console.log(teste);
-
   return (
-    <div>
-      <ul>
-        <li>{name}</li>
-        <li>{cpf}</li>
-        <li>{email}</li>
-        <li>{car}</li>
-        <li>{service}</li>
-        <li>{parts ? parts : 'sem peças extras'}</li>
-        <li>{orderDate ? convertDate(orderDate) : ''}</li>
-        <li>{}</li>
+    <div className='h-screen flex flex-col items-center justify-center font-bold'>
+      <ul className='bg-[#202b57] text-white rounded-2xl
+        h-[40%] w-[30%] flex flex-col items-center justify-center'>
+        <li className='mt-2'>{name}</li>
+        <li className='mt-2'>{cpf}</li>
+        <li className='mt-2'>{email}</li>
+        <li className='mt-2'>{car}</li>
+        <li className='mt-2'>{service}</li>
+        <li className='mt-2'>{parts ? parts : 'sem peças extras'}</li>
+        <li className='mt-2'>{orderDate ? convertDate(orderDate) : ''}</li>
       </ul>
     </div>
   );
