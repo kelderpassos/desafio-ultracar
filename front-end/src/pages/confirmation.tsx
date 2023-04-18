@@ -4,7 +4,7 @@ import { useContext } from 'react';
 
 
 export default function Services() {
-  const { payload, sendService } = useContext(ServiceContext)
+  const { payload } = useContext(ServiceContext)
 
   const { name, cpf, email, car, service, parts, orderDate } = payload as Service
   
