@@ -33,10 +33,9 @@ export const createService = async (data: Service) => {
       body:JSON.stringify(data)
     })
 
-    const response = await request.json()
-    console.log(response);
+    const response: Service = await request.json()
     
-    return response as Employee[]
+    return response
     
   } catch (error: any) {
     throw new Error(error)
