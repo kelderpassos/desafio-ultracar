@@ -1,27 +1,31 @@
 {
   "clients": [
-    { "id": "1",
+    {
+      "id": "1",
       "name": "Patrícia Magi",
       "cpf": "11111111111",
       "email": "patricia-magi@ultracar.com.br",
       "car": "Ford Fusion 2023",
       "service": "troca de óleo"
     },
-    { "id": "2",
+    {
+      "id": "2",
       "name": "Jonathan Cristian",
       "cpf": "22222222222",
       "email": "jonathan-cristian@ultracar.com.br",
       "car": "Toyota Corolla 2023",
       "service": "alinhamento"
     },
-    { "id": "3",
+    {
+      "id": "3",
       "name": "Genesis Pereira",
       "cpf": "33333333333",
       "email": "genesis-pereira@ultracar.com.br",
       "car": "Ford Fusion 2023",
       "service": "revisão"
     },
-    { "id": "4",
+    {
+      "id": "4",
       "name": "Wilson Sales",
       "cpf": "44444444444",
       "email": "wilson-sales@ultracar.com.br",
@@ -30,12 +34,89 @@
     }
   ],
   "employees": [
-    {"id": 1, "name": "Joana"},
-    {"id": 2, "name": "Joaquim"},
-    {"id": 3, "name": "Afonso"},
-    {"id": 4, "name": "Larissa"}
+    {
+      "id": 1,
+      "name": "Joana"
+    },
+    {
+      "id": 2,
+      "name": "Joaquim"
+    },
+    {
+      "id": 3,
+      "name": "Afonso"
+    },
+    {
+      "id": 4,
+      "name": "Larissa"
+    }
   ],
   "services": [
-
+    {
+      "name": "Patrícia Magi",
+      "cpf": "11111111111",
+      "email": "patricia-magi@ultracar.com.br",
+      "car": "Ford Fusion 2023",
+      "service": "troca de óleo",
+      "employee": "Joana",
+      "parts": "",
+      "date": "2023-04-18T18:40:24.778Z",
+      "id": 1
+    },
+    {
+      "name": "Patrícia Magi",
+      "cpf": "11111111111",
+      "email": "patricia-magi@ultracar.com.br",
+      "car": "Ford Fusion 2023",
+      "service": "troca de óleo",
+      "employee": "Afonso",
+      "parts": "garrafa de óleo",
+      "date": "2023-04-18T18:40:43.365Z",
+      "id": 2
+    },
+    {
+      "name": "Patrícia Magi",
+      "cpf": "11111111111",
+      "email": "patricia-magi@ultracar.com.br",
+      "car": "Ford Fusion 2023",
+      "service": "troca de óleo",
+      "employee": "Joana",
+      "parts": "",
+      "date": "2023-04-18T18:49:21.371Z",
+      "id": 3
+    },
+    {
+      "name": "Patrícia Magi",
+      "cpf": "11111111111",
+      "email": "patricia-magi@ultracar.com.br",
+      "car": "Ford Fusion 2023",
+      "service": "troca de óleo",
+      "employee": "Joana",
+      "parts": "",
+      "date": "2023-04-18T18:50:54.071Z",
+      "id": 4
+    },
+    {
+      "name": "Patrícia Magi",
+      "cpf": "11111111111",
+      "email": "patricia-magi@ultracar.com.br",
+      "car": "Ford Fusion 2023",
+      "service": "troca de óleo",
+      "employee": "Afonso",
+      "parts": "",
+      "orderDate": "2023-04-18T19:08:42.740Z",
+      "id": 5
+    },
+    {
+      "name": "Patrícia Magi",
+      "cpf": "11111111111",
+      "email": "patricia-magi@ultracar.com.br",
+      "car": "Ford Fusion 2023",
+      "service": "troca de óleo",
+      "employee": "Joana",
+      "parts": "",
+      "orderDate": "2023-04-18T19:10:37.949Z",
+      "id": 6
+    }
   ]
 }
