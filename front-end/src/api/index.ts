@@ -25,3 +25,20 @@ export const fetchEmployees = async () => {
   }
 }
 
+export const createService = async (data: Service) => {
+  try {
+    const request = await fetch("http://localhost:3000/services/",{
+      method:'POST',
+      headers:{'content-type':'application/json'},
+      body:JSON.stringify(data)
+    })
+
+    const response = await request.json()
+    console.log(response);
+    
+    return response as Employee[]
+    
+  } catch (error: any) {
+    throw new Error(error)
+  }
+}
