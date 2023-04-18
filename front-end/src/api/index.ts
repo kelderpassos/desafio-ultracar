@@ -1,12 +1,12 @@
-import { Client } from "@/interfaces"
+import { Client, Service } from "@/interfaces"
 import { Employee } from "@/interfaces/"
 
 export const fetchByCpf = async (cpf: string) => {
   try {
     const request = await fetch(`http://localhost:3000/clients/?cpf=${cpf}`)
-    const response = await request.json()
+    const response: Client[] = await request.json()
     
-    return response[0] as Client
+    return response[0]
     
   } catch (error: any) {
     throw new Error(error)
@@ -16,11 +16,12 @@ export const fetchByCpf = async (cpf: string) => {
 export const fetchEmployees = async () => {
   try {
     const request = await fetch(`http://localhost:3000/employees/`)
-    const response = await request.json()
+    const response: Employee[] = await request.json()
     
-    return response as Employee[]
-    
+    return response
+
   } catch (error: any) {
     throw new Error(error)
   }
 }
+
