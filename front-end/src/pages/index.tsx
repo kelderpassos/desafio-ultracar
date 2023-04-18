@@ -1,20 +1,26 @@
-import { useState } from 'react';
-import { useRouter } from 'next/router';
+import { useContext, useState } from 'react'
+import { useRouter } from 'next/router'
+import { fetchByCpf } from '../api'
+import { ClientContext } from '@/context/clientContext'
 
 const ELEVEN = 11
 
 export default function Home() {
-  const [input, setInput] = useState('');
-  const router = useRouter();
+  const [input, setInput] = useState('')
+  const { sendClient } = useContext(ClientContext)
+  const router = useRouter()
 
   const handleInput: React.ChangeEventHandler<HTMLInputElement> = ({target}) => {
     setInput(target.value) 
   }
 
-  const handleSubmit: React.FormEventHandler<HTMLFormElement> = (e) => {
+  const handleSubmit: React.FormEventHandler<HTMLFormElement> = async (e) => {
     e.preventDefault()
 
-    router.push('/users/teste')
+    const client = await fetchByCpf(input)    
+    sendClient(client)
+    
+    router.push(`/users/${client.id}`)
   }
 
   const isDisabled = input.length !== ELEVEN
