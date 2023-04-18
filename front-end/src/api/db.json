@@ -1,0 +1,41 @@
+{
+  "clients": [
+    { "id": "1",
+      "name": "Patrícia Magi",
+      "cpf": "11111111111",
+      "email": "patricia-magi@ultracar.com.br",
+      "car": "Ford Fusion 2023",
+      "service": "troca de óleo"
+    },
+    { "id": "2",
+      "name": "Jonathan Cristian",
+      "cpf": "22222222222",
+      "email": "jonathan-cristian@ultracar.com.br",
+      "car": "Toyota Corolla 2023",
+      "service": "alinhamento"
+    },
+    { "id": "3",
+      "name": "Genesis Pereira",
+      "cpf": "33333333333",
+      "email": "genesis-pereira@ultracar.com.br",
+      "car": "Ford Fusion 2023",
+      "service": "revisão"
+    },
+    { "id": "4",
+      "name": "Wilson Sales",
+      "cpf": "44444444444",
+      "email": "wilson-sales@ultracar.com.br",
+      "car": "Ford Fusion 2023",
+      "service": "troca pastilha de freio"
+    }
+  ],
+  "employees": [
+    {"id": 1, "name": "Joana"},
+    {"id": 2, "name": "Joaquim"},
+    {"id": 3, "name": "Afonso"},
+    {"id": 4, "name": "Larissa"}
+  ],
+  "services": [
+
+  ]
+}
