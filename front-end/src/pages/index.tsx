@@ -1,13 +1,13 @@
 import { useContext, useState } from 'react'
 import { useRouter } from 'next/router'
 import { fetchByCpf } from '../api'
-import { ClientContext } from '@/context/clientContext'
+import { ServiceContext } from '@/context/serviceContext'
 
 const ELEVEN = 11
 
 export default function Home() {
   const [input, setInput] = useState('')
-  const { sendClient } = useContext(ClientContext)
+  const { sendClient } = useContext(ServiceContext)
   const router = useRouter()
 
   const handleInput: React.ChangeEventHandler<HTMLInputElement> = ({target}) => {
@@ -19,7 +19,7 @@ export default function Home() {
 
     const client = await fetchByCpf(input)    
     sendClient(client)
-    
+
     router.push(`/users/${client.id}`)
   }
 

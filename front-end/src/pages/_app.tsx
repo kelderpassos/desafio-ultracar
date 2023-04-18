@@ -1,11 +1,11 @@
 import type { AppProps } from 'next/app'
-import { ClientContextProvider } from '@/context/clientContext'
+import { ServiceContextProvider } from '@/context/serviceContext'
 import '@/styles/globals.css'
 
 export default function App({ Component, pageProps }: AppProps) {
   return (
-    <ClientContextProvider>
+    <ServiceContextProvider>
       <Component {...pageProps} />
-    </ClientContextProvider>
+    </ServiceContextProvider>
   )
 }

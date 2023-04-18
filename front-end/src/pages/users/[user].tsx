@@ -1,7 +1,7 @@
 import { ChangeEventHandler, useContext, useEffect, useState } from 'react'
 import QRCode from 'react-qr-code'
 import { useRouter } from 'next/router'
-import { ClientContext } from '@/context/clientContext'
+import { ServiceContext } from '@/context/serviceContext'
 import { fetchEmployees } from '@/api'
 import { Employee } from "@/interfaces/"
 
@@ -15,7 +15,7 @@ export default function User() {
   const [input, setInput] = useState<Record<string, string>>(initialState)
   const [employees, setEmployees] = useState<Employee[]>([])
   const [isChecked, setIsChecked] = useState<boolean>(false)
-  const { payload } = useContext(ClientContext)
+  const { payload, sendService } = useContext(ServiceContext)
   const router = useRouter();
 
   useEffect(() => {
@@ -31,15 +31,17 @@ export default function User() {
   }
 
   const handleCheckbox: ChangeEventHandler<HTMLInputElement> = ({ target: { checked } }) => {
-		setIsChecked(checked);
+		setIsChecked(checked)
 	}
 
   const handleSubmit: React.FormEventHandler<HTMLFormElement> = (e) => {
-    const { employee, parts } = input
     e.preventDefault()
+
+    const { employee, parts } = input
     const newService = {...payload, employee, parts, date: new Date()}
-    console.log(newService);
-    // router.push('/services')
+    sendService(newService)
+
+    router.push('/services')
   }
 
   return (

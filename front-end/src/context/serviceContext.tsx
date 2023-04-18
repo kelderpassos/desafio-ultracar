@@ -3,15 +3,15 @@ import { reducer } from "./reducer";
 import { sendClientAction, sendServiceAction } from "./reducer/actions";
 import { Client, Service } from "@/interfaces";
 
-interface ClientContextType {
+interface ServiceContextType {
   payload: Client | Service,
   sendClient: (param: Client) => void
   sendService: (param: Client) => void
 }
 
-export const ClientContext = createContext({} as ClientContextType)
+export const ServiceContext = createContext({} as ServiceContextType)
 
-interface UserContextProviderProps {
+interface ServiceContextProviderProps {
   children: ReactNode
 }
 
@@ -24,7 +24,7 @@ const initialState = {
   service: ''
 }
 
-export const ClientContextProvider = ({ children }: UserContextProviderProps) => {
+export const ServiceContextProvider = ({ children }: ServiceContextProviderProps) => {
   const [payload, dispatch] = useReducer(reducer, initialState)
 
   // const [service]
@@ -38,9 +38,9 @@ export const ClientContextProvider = ({ children }: UserContextProviderProps) =>
   }
 
   return (
-    <ClientContext.Provider value={{ payload, sendClient, sendService }}>
+    <ServiceContext.Provider value={{ payload, sendClient, sendService }}>
       {children}
-    </ClientContext.Provider>
+    </ServiceContext.Provider>
   );
 }
 
