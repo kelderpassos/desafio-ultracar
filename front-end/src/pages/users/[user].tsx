@@ -3,7 +3,7 @@ import QRCode from 'react-qr-code'
 import { useRouter } from 'next/router'
 import { ClientContext } from '@/context/clientContext'
 import { fetchEmployees } from '@/api'
-import { Employee } from "@/interfaces/employees"
+import { Employee } from "@/interfaces/"
 
 
 const initialState = {

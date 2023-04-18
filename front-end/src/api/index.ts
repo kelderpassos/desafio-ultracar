@@ -1,5 +1,5 @@
 import { Client } from "@/interfaces"
-import { Employee } from "@/interfaces/employees"
+import { Employee } from "@/interfaces/"
 
 export const fetchByCpf = async (cpf: string) => {
   try {
