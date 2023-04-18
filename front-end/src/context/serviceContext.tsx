@@ -27,8 +27,6 @@ const initialState = {
 export const ServiceContextProvider = ({ children }: ServiceContextProviderProps) => {
   const [payload, dispatch] = useReducer(reducer, initialState)
 
-  // const [service]
-
   const sendClient = (data: Client) => {
     dispatch(sendClientAction(data))
   }
