@@ -1,5 +1,5 @@
 export interface Client {
-  id: number,
+  id?: number,
   name: string,
   cpf: string,
   email: string,
@@ -10,7 +10,7 @@ export interface Client {
 export interface Service extends Client {
   employee?: string,
   parts?: string,
-  date?: Date
+  orderDate?: Date
 }
 
 export interface Employee {
