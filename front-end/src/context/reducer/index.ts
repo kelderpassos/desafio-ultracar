@@ -2,7 +2,7 @@ import { Action, Client, Service } from "@/interfaces";
 import { ActionTypes } from "./actions";
 
 export const reducer = (state: Client | Service, action: Action<Service>) => {
-  const { id, name, cpf, email, car, service, employee, parts, date } = action.payload
+  const { id, name, cpf, email, car, service, employee, parts, orderDate } = action.payload
 
   switch (action.type) {
     case ActionTypes.SEND_CLIENT:
@@ -27,7 +27,7 @@ export const reducer = (state: Client | Service, action: Action<Service>) => {
         service,
         employee,
         parts,
-        date
+        orderDate
       }
     
     default:

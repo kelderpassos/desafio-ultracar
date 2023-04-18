@@ -22,8 +22,7 @@ export const sendClientAction = (data: Client) => {
 }
 
 export const sendServiceAction = (data: Service) => {
-  const { id, name, cpf, email, car, service, employee, parts, date } = data
-  console.log('action service', data);
+  const { id, name, cpf, email, car, service, employee, parts, orderDate } = data
   
   return {
     type: ActionTypes.SEND_SERVICE,
@@ -36,7 +35,7 @@ export const sendServiceAction = (data: Service) => {
       service,
       employee,
       parts,
-      date
+      orderDate
     },
   }
 }
