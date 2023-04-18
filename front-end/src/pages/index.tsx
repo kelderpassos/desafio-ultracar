@@ -20,7 +20,7 @@ export default function Home() {
     const client = await fetchByCpf(input)    
     sendClient(client)
 
-    router.push(`/users/${client.id}`)
+    router.push(`/clients/${client.id}`)
   }
 
   const isDisabled = input.length !== ELEVEN
