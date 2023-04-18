@@ -1,7 +1,10 @@
-import { ChangeEventHandler, useState } from 'react'
+import { ChangeEventHandler, useContext, useEffect, useState } from 'react'
 import QRCode from 'react-qr-code'
-import { clientsDatabase, employees } from '../../data'
 import { useRouter } from 'next/router'
+import { ClientContext } from '@/context/clientContext'
+import { fetchEmployees } from '@/api'
+import { Employee } from "@/interfaces/employees"
+
 
 const initialState = {
 	employee: 'Joana',
@@ -10,10 +13,14 @@ const initialState = {
 
 export default function User() {
   const [input, setInput] = useState<Record<string, string>>(initialState)
+  const [employees, setEmployees] = useState<Employee[]>([])
   const [isChecked, setIsChecked] = useState<boolean>(false)
+  const { payload } = useContext(ClientContext)
   const router = useRouter();
 
-  const user = clientsDatabase[0]
+  useEffect(() => {
+    fetchEmployees().then((data: Employee[]) => setEmployees(data))
+  }, [employees])
 
   const handleInput: React.ChangeEventHandler<HTMLInputElement> = ({ target: {id, value} }) => {
     setInput((prevState) => ({...prevState, [id]: value}))   
@@ -28,8 +35,11 @@ export default function User() {
 	}
 
   const handleSubmit: React.FormEventHandler<HTMLFormElement> = (e) => {
+    const { employee, parts } = input
     e.preventDefault()
-    router.push('/services')
+    const newService = {...payload, employee, parts, date: new Date()}
+    console.log(newService);
+    // router.push('/services')
   }
 
   return (
@@ -37,18 +47,18 @@ export default function User() {
       <section>
         <h1>Visualizar dados do cliente</h1>
         <QRCode value={`
-          ${user.name},
-          ${user.cpf},
-          ${user.email},
-          ${user.car},
-          ${user.service}`
+          ${payload.name},
+          ${payload.cpf},
+          ${payload.email},
+          ${payload.car},
+          ${payload.service}`
         }/>
       </section>
 
       <form onSubmit={handleSubmit}>
         <label htmlFor="employee">Colaborador designado
           <select id='employee' onChange={handleSelectInput}>{
-            employees.map(({id, name}) => (
+            employees.map(({id, name}: Employee) => (
               <option key={id} value={name}>{name}</option>              
             ))}
           </select>
