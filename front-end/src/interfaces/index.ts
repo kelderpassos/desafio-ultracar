@@ -7,15 +7,15 @@ export interface Client {
   service: string
 }
 
-export interface Employee {
-  id: number,
-  name: string,
-}
-
 export interface Service extends Client {
   employee?: string,
   parts?: string,
   date?: Date
+}
+
+export interface Employee {
+  id: number,
+  name: string,
 }
 
 export interface Action<T> {
