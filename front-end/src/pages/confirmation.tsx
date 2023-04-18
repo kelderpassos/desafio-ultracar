@@ -3,7 +3,6 @@ import { ServiceContext } from '@/context/serviceContext'
 import { Service } from '@/interfaces';
 import { convertDate } from '@/utils/indext';
 
-
 export default function Services() {
   const { payload } = useContext(ServiceContext)
 

@@ -50,7 +50,7 @@ export default function User() {
   return (
     <div className='h-screen flex flex-col items-center justify-center'>
       <section className='bg-[#202b57] text-white rounded-2xl
-        h-[50%] w-[40%] flex flex-col items-center justify-center'>
+        h-[50%] w-[35%] flex flex-col items-center justify-center'>
         <h1 className='text-xl font-bold'>Visualizar dados do cliente</h1>
         <div className='my-5'>
           <QRCode value={`
