@@ -1,11 +1,12 @@
 import { ReactNode, createContext, useReducer } from "react";
-import { clientsReducer } from "./reducer/clients";
-import { sendClientAction } from "./reducer/actions";
-import { Client } from "@/interfaces/client";
+import { reducer } from "./reducer";
+import { sendClientAction, sendServiceAction } from "./reducer/actions";
+import { Client, Service } from "@/interfaces";
 
 interface ClientContextType {
-  clients: Client,
+  payload: Client | Service,
   sendClient: (param: Client) => void
+  sendService: (param: Client) => void
 }
 
 export const ClientContext = createContext({} as ClientContextType)
@@ -24,14 +25,20 @@ const initialState = {
 }
 
 export const ClientContextProvider = ({ children }: UserContextProviderProps) => {
-  const [clients, dispatch] = useReducer(clientsReducer, initialState)
+  const [payload, dispatch] = useReducer(reducer, initialState)
+
+  // const [service]
 
   const sendClient = (data: Client) => {
     dispatch(sendClientAction(data))
   }
 
+  const sendService = (data: Service) => {
+    dispatch(sendServiceAction(data))
+  }
+
   return (
-    <ClientContext.Provider value={{ clients, sendClient }}>
+    <ClientContext.Provider value={{ payload, sendClient, sendService }}>
       {children}
     </ClientContext.Provider>
   );

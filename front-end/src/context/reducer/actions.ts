@@ -1,24 +1,41 @@
-import { Client } from "@/interfaces/client"
+import { Client, Service } from "@/interfaces"
 
 export enum ActionTypes {
-  SEND_CLIENT = 'SEND CLIENT',
+  SEND_CLIENT = 'SEND_CLIENT',
+  SEND_SERVICE = 'SEND_SERVICE'
 }
 
-export interface ClientAction {
-  type: string,
-  payload: Client
-}
+export const sendClientAction = (data: Client) => {
+  const { id, name, cpf, email, car, service } = data
 
-export const sendClientAction = (client: Client) => {
   return {
     type: ActionTypes.SEND_CLIENT,
     payload: {
-      id: client.id,
-      name: client.name,
-      cpf: client.cpf,
-      email: client.email,
-      car: client.car,
-      service: client.service
+      id,
+      name,
+      cpf,
+      email,
+      car,
+      service
+    },
+  }
+}
+
+export const sendServiceAction = (data: Service) => {
+  const { id, name, cpf, email, car, service, employee, parts, date } = data
+
+  return {
+    type: ActionTypes.SEND_CLIENT,
+    payload: {
+      id,
+      name,
+      cpf,
+      email,
+      car,
+      service,
+      employee,
+      parts,
+      date
     },
   }
 }
